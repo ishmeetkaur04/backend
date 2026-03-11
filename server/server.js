@@ -1,23 +1,43 @@
+const fs = require("fs");
 const express = require("express");
-const cors = require("cors");
-
-const balanceRoute = require("./routes/balance");
-const transactionsRoute = require("./routes/transactions");
-const sendMoneyRoute = require("./routes/sendMoney");
-
 const app = express();
+const port = 3000;
 
-app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("PayForge Backend Running");
+// LOGGER (put this early)
+app.use((req,res,next)=>{
+console.log(req.method, req.url);
+next();
 });
 
-app.use("/balance", balanceRoute);
-app.use("/transactions", transactionsRoute);
-app.use("/send-money", sendMoneyRoute);
+// serve public folder
+app.use(express.static("public"));
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+// ROUTE 1 - check balance
+app.get("/balance", (req, res) => {
+    res.json({ balance: 5000 });
+});
+
+// ROUTE 2 - send money
+app.post("/sendMoney", (req, res) => {
+    const { amount } = req.body;
+
+    res.json({
+        message: "Money sent successfully",
+        amount: amount
+    });
+});
+
+// ERROR HANDLING
+app.get("/error", (req, res) => {
+    try {
+        throw new Error("Something went wrong");
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
+app.listen(port, () => {
+    console.log("Server running on port " + port);
 });

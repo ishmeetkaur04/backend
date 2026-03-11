@@ -39,5 +39,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishmeetkaur04/backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ishmeetkaur04/backend/issues"
+  },
+  "homepage": "https://github.com/ishmeetkaur04/backend#readme"
 }
