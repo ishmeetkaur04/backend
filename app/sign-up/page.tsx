@@ -1,22 +1,11 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-<<<<<<< HEAD
-
-export default function Signup() {
-=======
 import { account } from "@/lib/appwrite";
 import { ID } from "appwrite";
 
 export default function Signup() {
-
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -25,7 +14,7 @@ export default function Signup() {
 
   const createAccount = async () => {
     try {
-<<<<<<< HEAD
+      // OPTION 1: Using your API (JWT / backend)
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -38,17 +27,11 @@ export default function Signup() {
         })
       });
 
-      if (res.ok) {
-        alert("Account created successfully");
-        router.push("/dashboard");
-      } else {
-        alert("Signup failed");
+      if (!res.ok) {
+        throw new Error("API failed");
       }
 
-    } catch (error) {
-      console.log(error);
-=======
-
+      // OPTION 2: Appwrite (if needed)
       await account.create(
         ID.unique(),
         email,
@@ -57,19 +40,16 @@ export default function Signup() {
       );
 
       alert("Account created successfully");
-
       router.push("/dashboard");
 
     } catch (error) {
       console.error(error);
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
       alert("Signup failed");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-50">
-
       <div className="bg-white p-10 rounded-xl shadow-xl w-[400px]">
 
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
@@ -108,7 +88,6 @@ export default function Signup() {
         </button>
 
       </div>
-
     </div>
   );
 }

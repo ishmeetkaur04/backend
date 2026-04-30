@@ -1,132 +1,9 @@
-<<<<<<< HEAD
-=======
-// "use client";
-
-// import { useState } from "react";
-// import { Send } from "lucide-react";
-
-// export default function SendMoney() {
-
-//   const [amount, setAmount] = useState("");
-
-//   const contacts = [
-//     { name: "Rahul Sharma", phone: "9876543210" },
-//     { name: "Anita Verma", phone: "9123456780" },
-//     { name: "Karan Singh", phone: "9988776655" },
-//     { name: "Priya Kapoor", phone: "9012345678" },
-//   ];
-
-//   // SEND MONEY FUNCTION (calls backend)
-// const sendMoney = async (name: string) => {
-
-//     if (!amount) {
-//       alert("Enter amount first");
-//       return;
-//     }
-
-//     const res = await fetch("http://localhost:5000/send-money", {
-
-//       method: "POST",
-
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-
-//       body: JSON.stringify({
-//         name,
-//         amount: Number(amount)
-//       })
-
-//     });
-
-//     const data = await res.json();
-
-//     alert(data.message);
-
-//     setAmount("");
-
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-8">
-
-//       <h1 className="text-3xl font-bold mb-6 text-blue-700">
-//         Send Money
-//       </h1>
-
-//       {/* Wallet Card */}
-//       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg mb-8">
-//         <p className="text-sm opacity-80">Available Balance</p>
-//         <h2 className="text-3xl font-bold mt-1">₹24,500</h2>
-//       </div>
-
-//       {/* Amount Input */}
-//       <div className="bg-white p-6 rounded-xl shadow mb-8">
-
-//         <label className="text-gray-600 text-sm">
-//           Enter Amount
-//         </label>
-
-//         <input
-//           type="number"
-//           value={amount}
-//           onChange={(e) => setAmount(e.target.value)}
-//           placeholder="₹0"
-//           className="w-full border p-3 rounded-lg mt-2 text-xl"
-//         />
-
-//       </div>
-
-//       {/* Contacts */}
-//       <div className="bg-white rounded-xl shadow p-6">
-
-//         <h2 className="text-xl font-semibold mb-4">
-//           Pay to Contacts
-//         </h2>
-
-//         <div className="grid grid-cols-2 gap-4">
-
-//           {contacts.map((contact, index) => (
-//             <div
-//               key={index}
-//               className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-blue-50"
-//             >
-//               <div>
-//                 <p className="font-medium">{contact.name}</p>
-//                 <p className="text-sm text-gray-500">
-//                   {contact.phone}
-//                 </p>
-//               </div>
-
-//               <button
-//                 onClick={() => sendMoney(contact.name)}
-//                 className="bg-blue-600 text-white p-2 rounded-lg"
-//               >
-//                 <Send size={16} />
-//               </button>
-
-//             </div>
-//           ))}
-
-//         </div>
-
-//       </div>
-
-//     </div>
-//   );
-// }
-
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 "use client";
 
 import { useState } from "react";
 import { Send } from "lucide-react";
 
 export default function SendMoney() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   const [amount, setAmount] = useState("");
 
   const contacts = [
@@ -136,88 +13,54 @@ export default function SendMoney() {
     { name: "Priya Kapoor", phone: "9012345678" },
   ];
 
-<<<<<<< HEAD
-  // SEND MONEY FUNCTION (calls backend)
-const sendMoney = async (name: string) => {
-
-=======
-  // SEND MONEY FUNCTION (calls Next.js API)
+  // ✅ SINGLE clean function
   const sendMoney = async (name: string) => {
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
     if (!amount) {
       alert("Enter amount first");
       return;
     }
 
-<<<<<<< HEAD
-    const res = await fetch("http://localhost:5000/send-money", {
-
-      method: "POST",
-
-      headers: {
-        "Content-Type": "application/json"
-      },
-
-      body: JSON.stringify({
-        name,
-        amount: Number(amount)
-      })
-
-    });
-
-    const data = await res.json();
-
-    alert(data.message);
-
-    setAmount("");
-
-=======
     try {
       const res = await fetch("/api/send-money", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, amount: Number(amount) }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          amount: Number(amount),
+        }),
       });
 
       if (!res.ok) throw new Error("Server error");
 
-      const data: { message: string } = await res.json();
+      const data = await res.json();
       alert(data.message);
+
       setAmount("");
     } catch (err: any) {
-      alert(err.message || "Something went wrong");
+      console.error(err);
+      alert("Something went wrong");
     }
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-8">
-<<<<<<< HEAD
 
       <h1 className="text-3xl font-bold mb-6 text-blue-700">
         Send Money
       </h1>
-=======
-      <h1 className="text-3xl font-bold mb-6 text-blue-700">Send Money</h1>
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 
-      {/* Wallet Card */}
+      {/* Wallet */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg mb-8">
         <p className="text-sm opacity-80">Available Balance</p>
         <h2 className="text-3xl font-bold mt-1">₹24,500</h2>
       </div>
 
-      {/* Amount Input */}
+      {/* Amount */}
       <div className="bg-white p-6 rounded-xl shadow mb-8">
-<<<<<<< HEAD
-
-        <label className="text-gray-600 text-sm">
-          Enter Amount
-        </label>
-
-=======
         <label className="text-gray-600 text-sm">Enter Amount</label>
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
+
         <input
           type="number"
           value={amount}
@@ -225,27 +68,15 @@ const sendMoney = async (name: string) => {
           placeholder="₹0"
           className="w-full border p-3 rounded-lg mt-2 text-xl"
         />
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
       </div>
 
       {/* Contacts */}
       <div className="bg-white rounded-xl shadow p-6">
-<<<<<<< HEAD
-
         <h2 className="text-xl font-semibold mb-4">
           Pay to Contacts
         </h2>
 
         <div className="grid grid-cols-2 gap-4">
-
-=======
-        <h2 className="text-xl font-semibold mb-4">Pay to Contacts</h2>
-
-        <div className="grid grid-cols-2 gap-4">
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
           {contacts.map((contact, index) => (
             <div
               key={index}
@@ -253,13 +84,9 @@ const sendMoney = async (name: string) => {
             >
               <div>
                 <p className="font-medium">{contact.name}</p>
-<<<<<<< HEAD
                 <p className="text-sm text-gray-500">
                   {contact.phone}
                 </p>
-=======
-                <p className="text-sm text-gray-500">{contact.phone}</p>
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
               </div>
 
               <button
@@ -268,21 +95,11 @@ const sendMoney = async (name: string) => {
               >
                 <Send size={16} />
               </button>
-<<<<<<< HEAD
-
-            </div>
-          ))}
-
-        </div>
-
-      </div>
-
-=======
             </div>
           ))}
         </div>
       </div>
->>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
+
     </div>
   );
 }
