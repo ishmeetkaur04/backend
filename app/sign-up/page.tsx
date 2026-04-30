@@ -1,9 +1,22 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+<<<<<<< HEAD
 
 export default function Signup() {
+=======
+import { account } from "@/lib/appwrite";
+import { ID } from "appwrite";
+
+export default function Signup() {
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -12,6 +25,7 @@ export default function Signup() {
 
   const createAccount = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -33,6 +47,22 @@ export default function Signup() {
 
     } catch (error) {
       console.log(error);
+=======
+
+      await account.create(
+        ID.unique(),
+        email,
+        password,
+        name
+      );
+
+      alert("Account created successfully");
+
+      router.push("/dashboard");
+
+    } catch (error) {
+      console.error(error);
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
       alert("Signup failed");
     }
   };

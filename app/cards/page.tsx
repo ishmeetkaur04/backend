@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { CreditCard, Plus } from "lucide-react";
 
@@ -22,6 +23,11 @@ export default function Cards() {
 
   const mainCard: any = cards[0];
 
+=======
+import { CreditCard, Plus } from "lucide-react";
+
+export default function Cards() {
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   return (
     <div className="min-h-screen bg-gray-100 p-8">
 
@@ -33,6 +39,7 @@ export default function Cards() {
       <div className="grid grid-cols-2 gap-8">
 
         {/* Main Card */}
+<<<<<<< HEAD
         {mainCard && (
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg">
 
@@ -70,6 +77,31 @@ export default function Cards() {
 
           </div>
         )}
+=======
+        <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg">
+
+          <p className="opacity-80">PayForge Wallet</p>
+
+          <h2 className="text-2xl font-bold mt-6">
+            **** **** **** 4587
+          </h2>
+
+          <div className="flex justify-between mt-6">
+
+            <div>
+              <p className="text-sm opacity-80">Card Holder</p>
+              <p className="font-semibold">Ishmeet Kaur</p>
+            </div>
+
+            <div>
+              <p className="text-sm opacity-80">Expiry</p>
+              <p className="font-semibold">12/28</p>
+            </div>
+
+          </div>
+
+        </div>
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 
         {/* Add Card */}
         <div className="bg-white flex flex-col items-center justify-center rounded-xl shadow hover:shadow-lg cursor-pointer">
@@ -95,6 +127,7 @@ export default function Cards() {
           Saved Cards
         </h2>
 
+<<<<<<< HEAD
         {cards.slice(1).map((card: any, index) => (
 
           <div
@@ -119,6 +152,33 @@ export default function Cards() {
           </div>
 
         ))}
+=======
+        <div className="flex items-center justify-between border-b py-4">
+
+          <div className="flex items-center gap-4">
+            <CreditCard className="text-blue-600" />
+            <p>HDFC Debit Card •••• 2345</p>
+          </div>
+
+          <p className="text-green-600 font-semibold">
+            Active
+          </p>
+
+        </div>
+
+        <div className="flex items-center justify-between py-4">
+
+          <div className="flex items-center gap-4">
+            <CreditCard className="text-blue-600" />
+            <p>SBI Credit Card •••• 9821</p>
+          </div>
+
+          <p className="text-green-600 font-semibold">
+            Active
+          </p>
+
+        </div>
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
 
       </div>
 

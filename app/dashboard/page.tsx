@@ -119,6 +119,7 @@
 "use client";
 
 import Link from "next/link";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import {
   Send,
@@ -165,11 +166,31 @@ export default function Dashboard() {
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md p-6">
+=======
+import { Send, ArrowDownLeft, LayoutDashboard, Wallet, CreditCard } from "lucide-react";
+
+export default function Dashboard() {
+
+  const transactions = [
+    { name: "Rahul Sharma", amount: 500 },
+    { name: "Priya Kapoor", amount: 1200 },
+    { name: "Karan Singh", amount: 300 }
+  ];
+
+  return (
+
+    <div className="flex min-h-screen bg-gray-100">
+
+      {/* Sidebar */}
+      <div className="w-64 bg-white shadow-md p-6">
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
         <h2 className="text-2xl font-bold text-blue-700 mb-10">
           PayForge
         </h2>
 
         <div className="flex flex-col gap-6">
+<<<<<<< HEAD
           <Link
             href="/dashboard"
             className="flex items-center gap-3 text-gray-700 hover:text-blue-600"
@@ -202,10 +223,40 @@ export default function Dashboard() {
             Cards
           </Link>
         </div>
+=======
+
+          <Link href="/dashboard" className="flex items-center gap-3 text-gray-700 hover:text-blue-600">
+            <LayoutDashboard size={20}/>
+            Dashboard
+          </Link>
+
+          <Link href="/send" className="flex items-center gap-3 text-gray-700 hover:text-blue-600">
+            <Send size={20}/>
+            Send Money
+          </Link>
+
+          <Link href="/transactions" className="flex items-center gap-3 text-gray-700 hover:text-blue-600">
+            <ArrowDownLeft size={20}/>
+            Transactions
+          </Link>
+
+          {/* Cards Link */}
+          <Link href="/cards" className="flex items-center gap-3 text-gray-700 hover:text-blue-600">
+            <CreditCard size={20}/>
+            Cards
+          </Link>
+
+        </div>
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
       </div>
 
       {/* Main Content */}
       <div className="flex-1 p-10">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
         <h1 className="text-3xl font-bold mb-8">
           Dashboard
         </h1>
@@ -213,13 +264,18 @@ export default function Dashboard() {
         {/* Wallet Card */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg w-80 mb-10">
           <p className="text-sm opacity-80">Wallet Balance</p>
+<<<<<<< HEAD
           <h2 className="text-3xl font-bold mt-2">
             ₹{balance}
           </h2>
+=======
+          <h2 className="text-3xl font-bold mt-2">₹24,500</h2>
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
         </div>
 
         {/* Feature Cards */}
         <div className="grid grid-cols-3 gap-6 mb-10">
+<<<<<<< HEAD
           <Link href="/send">
             <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg cursor-pointer flex items-center gap-4">
               <Send className="text-blue-600" />
@@ -228,24 +284,41 @@ export default function Dashboard() {
                 <p className="text-sm text-gray-500">
                   Transfer instantly
                 </p>
+=======
+
+          <Link href="/send">
+            <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg cursor-pointer flex items-center gap-4">
+              <Send className="text-blue-600"/>
+              <div>
+                <p className="font-semibold">Send Money</p>
+                <p className="text-sm text-gray-500">Transfer instantly</p>
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
               </div>
             </div>
           </Link>
 
           <Link href="/receive">
             <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg cursor-pointer flex items-center gap-4">
+<<<<<<< HEAD
               <ArrowDownLeft className="text-green-600" />
               <div>
                 <p className="font-semibold">Receive Money</p>
                 <p className="text-sm text-gray-500">
                   Accept payments
                 </p>
+=======
+              <ArrowDownLeft className="text-green-600"/>
+              <div>
+                <p className="font-semibold">Receive Money</p>
+                <p className="text-sm text-gray-500">Accept payments</p>
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
               </div>
             </div>
           </Link>
 
           <Link href="/cards">
             <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg cursor-pointer flex items-center gap-4">
+<<<<<<< HEAD
               <Wallet className="text-purple-600" />
               <div>
                 <p className="font-semibold">Cards</p>
@@ -255,14 +328,29 @@ export default function Dashboard() {
               </div>
             </div>
           </Link>
+=======
+              <Wallet className="text-purple-600"/>
+              <div>
+                <p className="font-semibold">Cards</p>
+                <p className="text-sm text-gray-500">Manage cards</p>
+              </div>
+            </div>
+          </Link>
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
         </div>
 
         {/* Recent Transactions */}
         <div className="bg-white p-6 rounded-xl shadow">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
           <h2 className="text-xl font-semibold mb-4">
             Recent Transactions
           </h2>
 
+<<<<<<< HEAD
           {transactions.length === 0 ? (
             <p>No Transactions</p>
           ) : (
@@ -282,5 +370,25 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
+=======
+          {transactions.map((t, i) => (
+            <div key={i} className="flex justify-between border-b py-3">
+
+              <p>{t.name}</p>
+
+              <p className="text-red-500">
+                -₹{t.amount}
+              </p>
+
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+
+>>>>>>> 3b82289571a84d8cb57668abab42c113441fcc98
   );
 }
